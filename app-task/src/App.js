@@ -9,7 +9,7 @@ function App() {
   const [title, setTitle] = useState("")
   const [time, setTime] = useState("")
   const [task, setTask] = useState([])
-  const [setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   //Load task on page load
 
@@ -25,8 +25,10 @@ function App() {
       setTask(res);
     }
     loadData();
-  })
-
+  }, [])
+  if (loading) {
+    return <p>Carregando...</p>
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -68,6 +70,7 @@ function App() {
     });
     setTask((prevState) => prevState.map((t) => (t.id === data.id ? (t = data) : t)));
   }
+
 
   return (
     <div className="App">
