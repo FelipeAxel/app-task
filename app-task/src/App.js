@@ -9,7 +9,7 @@ function App() {
   const [title, setTitle] = useState("")
   const [time, setTime] = useState("")
   const [task, setTask] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [setLoading] = useState(false)
 
   //Load task on page load
 
@@ -68,10 +68,10 @@ function App() {
     });
     setTask((prevState) => prevState.map((t) => (t.id === data.id ? (t = data) : t)));
   }
-  if (loading) {
+  /*if (loading) {
     return <p>Carregando...</p>
   }
-
+*/
   return (
     <div className="App">
       <div className="tas-header">
