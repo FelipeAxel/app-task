@@ -64,7 +64,7 @@ function App() {
       body:JSON.stringify(task),
       headers: {
         "Content-Type": "application/json",
-      },
+      }
     });
     setTask((prevState) => prevState.map((t)=>(t.id === data.id ? (t=data) :  t)));
   }
